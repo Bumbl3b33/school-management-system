@@ -26,7 +26,8 @@ const AllocateStudentSubjects = () => {
     <>
       <NavigationBar />
       <AllocateForm
-        title="Allocated Subjects"
+        formTitle="Allocated Subjects"
+        tableTitle="Existing Subjects"
         table={sampleData}
         onDeallocate={onDeallocate}
         onAllocate={onAllocate}
