@@ -1,7 +1,7 @@
 import CustomForm from "../../../components/customForm/CustomForm";
 import CustomTable from "../../../components/customTable/CustomTable";
 import NavigationBar from "../../../components/navbar/NavigationBar";
-import { FormGroup, Label, Input } from "reactstrap";
+import { FormGroup, Label, Input, Card, CardHeader, CardBody} from "reactstrap";
 import { useState, useEffect } from "react";
 
 const StudentReport = () => {
@@ -113,10 +113,16 @@ const StudentReport = () => {
                         </div>
                     </div>
                 </CustomForm>
-                </div>
-                <div class="container p-3">
-                    
-                <CustomTable title="Teacher and Subject Details" table={sampleReport} />
+            </div>
+            <div class="container p-3">
+                <Card>
+                    <CardHeader>
+                        Teacher and Subject Details
+                    </CardHeader>
+                    <CardBody>
+                        <CustomTable table={sampleReport} />
+                    </CardBody>
+                </Card>
             </div>
         </>
     );

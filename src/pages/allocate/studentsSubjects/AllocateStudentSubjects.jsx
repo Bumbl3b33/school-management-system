@@ -18,35 +18,76 @@ const AllocateStudentSubjects = () => {
     { id: 2, name: "sam", age: 35, wives: 12 },
   ];
 
-  const subjects = ["subject 1", "subject 2"];
+  const students = ["student 1", "student 2"];
+  const subjects= ["subject 1", "subject 2"];
 
   const onDeallocate = (e) => console.log("Deallocating...", e.target.id);
   const onAllocate = () => console.log("Allocating...", allocation.subject);
+  const onSave = () => console.log("Saving...", allocation.subject);
 
   return (
     <>
       <NavigationBar />
+      <div class="container p-3">
+        <CustomForm
+          title="Select Student"
+          table={sampleData}
+          onSave={onSave}
+        >
+          <div class="row">
+            <div class="col-3">
+              <FormGroup>
+                <Label for="student">Student</Label>
+                <Input
+                  id="student"
+                  type="select"
+                  value={allocation.student || ""}
+                  onChange={handleChange}
+                >
+                  {students &&
+                    students.map((student, index) => (
+                      <option key={index}>{student}</option>
+                    ))}
+                </Input>
+              </FormGroup>
+            </div>
+          </div>
+        </CustomForm>
+      </div>
+
+      <div class="container p-3">
       <CustomForm
-        title="Allocated Subjects"
-        table={sampleData}
-        onSave={onAllocate}
-      >
-        <FormGroup>
-          <Label for="subject">Subject</Label>
-          <Input
-            id="subject"
-            type="select"
-            value={allocation.subject || ""}
-            onChange={handleChange}
-            >
-            {subjects &&
-              subjects.map((subject, index) => (
-                <option key={index}>{subject}</option>
-              ))}
-          </Input>
-        </FormGroup>
-      </CustomForm>
-      <CustomTable title="Existing Students" table={sampleData} buttonHandler={onDeallocate} buttonText="Deallocate" />
+          title="Allocated Subjects"
+          table={sampleData}
+          >
+          <div class="row">
+            <div class="col-3">
+              <FormGroup>
+                <Label for="subject">Subject</Label>
+                <Input
+                  id="subject"
+                  type="select"
+                  value={allocation.subject || ""}
+                  onChange={handleChange}
+                >
+                  {subjects &&
+                    subjects.map((subject, index) => (
+                      <option key={index}>{subject}</option>
+                    ))}
+                </Input>
+              </FormGroup>
+              <Button color="success" onClick={onAllocate}>Allocate</Button>
+            </div>
+          </div>
+          <CustomTable title="Existing Students" table={sampleData} buttonHandler={onDeallocate} buttonText="Deallocate" />
+        </CustomForm>
+      </div>
+
+
+
+      <div class="container p-3">
+        
+      </div>
     </>
   );
 };
