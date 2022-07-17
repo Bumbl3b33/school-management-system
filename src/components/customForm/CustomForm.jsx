@@ -8,8 +8,8 @@ const CustomForm = ({ children, title, onSave, onReset, onDelete }) => {
       <CardBody>
         <Form>
           {children}
-          <ButtonSet onSave={onSave} onDelete={onDelete} onReset={onReset} />
         </Form>
+        <ButtonSet onSave={onSave} onDelete={onDelete} onReset={onReset} />
       </CardBody>
     </Card>
   );

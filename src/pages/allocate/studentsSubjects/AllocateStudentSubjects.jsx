@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { FormGroup, Label, Input, Button } from "reactstrap";
-import AllocateForm from "../../../components/allocateForm/AllocateForm";
+import CustomForm from "../../../components/customForm/CustomForm";
 import NavigationBar from "../../../components/navbar/NavigationBar";
+import CustomTable from "../../../components/customTable/CustomTable";
 
 const AllocateStudentSubjects = () => {
   const [allocation, setAllocation] = useState({});
@@ -25,12 +26,10 @@ const AllocateStudentSubjects = () => {
   return (
     <>
       <NavigationBar />
-      <AllocateForm
-        formTitle="Allocated Subjects"
-        tableTitle="Existing Subjects"
+      <CustomForm
+        title="Allocated Subjects"
         table={sampleData}
-        onDeallocate={onDeallocate}
-        onAllocate={onAllocate}
+        onSave={onAllocate}
       >
         <FormGroup>
           <Label for="subject">Subject</Label>
@@ -39,14 +38,15 @@ const AllocateStudentSubjects = () => {
             type="select"
             value={allocation.subject || ""}
             onChange={handleChange}
-          >
+            >
             {subjects &&
               subjects.map((subject, index) => (
                 <option key={index}>{subject}</option>
               ))}
           </Input>
         </FormGroup>
-      </AllocateForm>
+      </CustomForm>
+      <CustomTable title="Existing Students" table={sampleData} buttonHandler={onDeallocate} buttonText="Deallocate" />
     </>
   );
 };

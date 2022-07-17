@@ -1,7 +1,6 @@
-import { Card, CardFooter, CardHeader, CardBody, Table } from "reactstrap";
+import { Card, CardFooter, CardHeader, CardBody, Table, Button } from "reactstrap";
 
-const CustomTable = ({ title, table }) => {
-  
+const CustomTable = ({ title, table, buttonHandler, buttonText }) => {
   return (
     <>
       <Card>
@@ -10,19 +9,27 @@ const CustomTable = ({ title, table }) => {
           <Table striped>
             <thead>
               <tr>
-                {table && Object.keys(table[0]).map((key) => (
-                  <th> {key} </th>
-                ))}
+                {table && Object.keys(table[0]).map((key) => <th> {key} </th>)}
+                {buttonHandler && <th>Action</th>}
               </tr>
             </thead>
             <tbody>
-              {table && table.map((object) => (
-                <tr>
-                  {Object.values(object).map((value) => (
-                    <td>{value}</td>
-                  ))}
-                </tr>
-              ))}
+              {table &&
+                table.map((object) => (
+                  <tr>
+                    {Object.values(object).map((value) => (
+                      <td>{value}</td>
+                    ))}
+                    {buttonHandler && (
+                      <td>
+                        {/* object.id is a unique identifier that is passed into the onclick event*/}
+                        <Button id={object.id} onClick={buttonHandler}>
+                          {buttonText}
+                        </Button>
+                      </td>
+                    )}
+                  </tr>
+                ))}
             </tbody>
           </Table>
         </CardBody>
