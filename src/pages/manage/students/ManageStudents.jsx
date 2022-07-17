@@ -15,8 +15,8 @@ const ManageStudents = () => {
   };
 
   const sampleData = [
-    { name: "john", age: 45, wives: 2 },
-    { name: "sam", age: 35, wives: 12 },
+    {id: "1", name: "john", age: 45, wives: 2 },
+    {id: "2", name: "sam", age: 35, wives: 12 },
   ];
 
   const classroomData = [{id:1,name:'class 1'},{id:2,name:'class 2'}]
@@ -31,11 +31,13 @@ const ManageStudents = () => {
 
   const onReset = () => setStudent({});
 
+  const onEdit = (e) => console.log("refreshing page for...",e.target.id);
+
   console.log(student);
   return (
     <>
       <NavigationBar />
-      <CustomForm onDelete={onDelete} onReset={onReset} onSave={onSave}>
+      <CustomForm title="Manage Students" onDelete={onDelete} onReset={onReset} onSave={onSave}>
         <FormGroup>
           <Label for="firstName">First Name</Label>
           <Input
@@ -110,7 +112,7 @@ const ManageStudents = () => {
           </Input>
         </FormGroup>
       </CustomForm>
-      <CustomTable title="Existing Students" table={sampleData} />
+      <CustomTable title="Existing Students" table={sampleData} buttonHandler={onEdit} buttonText="Edit" />
     </>
   );
 };
