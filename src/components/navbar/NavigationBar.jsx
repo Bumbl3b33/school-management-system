@@ -53,7 +53,7 @@ const NavigationBar = () => {
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  <NavLink href="#">Student's Subjects</NavLink>
+                  <NavLink href="/allocate/studentSubjects">Student's Subjects</NavLink>
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
