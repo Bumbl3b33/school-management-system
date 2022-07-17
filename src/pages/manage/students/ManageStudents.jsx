@@ -1,9 +1,9 @@
-import ButtonSet from "../../../components/buttonSet/ButtonSet";
 import CustomTable from "../../../components/customTable/CustomTable";
 import CustomForm from "../../../components/customForm/CustomForm";
 import NavigationBar from "../../../components/navbar/NavigationBar";
 import { FormGroup, Label, Input } from "reactstrap";
 import { useState } from "react";
+import {DateTime} from "luxon";
 
 const ManageStudents = () => {
   const [student, setStudent] = useState({});
@@ -95,7 +95,7 @@ const ManageStudents = () => {
           <Input
             id="age"
             readOnly
-            value={19}
+            value={student.dob && DateTime.now().diff(DateTime.fromFormat(student.dob, 'yyyy-MM-dd')).toFormat("yy") || "-"}
           />
         </FormGroup>
         <FormGroup>
