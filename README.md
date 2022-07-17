@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Generic School Management System
+
+Manage Students, Teachers, Classrooms and Subjects with allocation and reporting capabilities.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
