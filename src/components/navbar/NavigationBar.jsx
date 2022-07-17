@@ -71,7 +71,7 @@ const NavigationBar = () => {
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  <NavLink href="#">Student</NavLink>
+                  <NavLink href="/reports/student">Student</NavLink>
                 </DropdownItem>               
               </DropdownMenu>
             </UncontrolledDropdown>
