@@ -20,8 +20,8 @@ const ManageTeachers = () => {
 
 
     setTeachers([
-      { id: "1", firstName: "john", lastName: "smith", contactPerson: "alex rider", email: "johnsmith@myschool.com" },
-      { id: "2", firstName: "anna", lastName: "belle", contactPerson: "valak johnson", email: "anabelle@myschool.com" },
+      { id: "1", firstName: "john", lastName: "smith", contactNo: "+9472672828", email: "johnsmith@myschool.com" },
+      { id: "2", firstName: "anna", lastName: "belle", contactNo: "+9473456789", email: "anabelle@myschool.com" },
     ])
 
 
