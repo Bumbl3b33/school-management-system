@@ -1,15 +1,18 @@
 import CustomFormWrapper from "../common/customFormWrapper/CustomFormWrapper";
 import { Form, FormGroup, Label, Input } from "reactstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const StudentReportForm = ({students, onStudentSelect}) => {
+const StudentReportForm = ({students, onStudentSelect, selectedStudent}) => {
     const [student, setStudent] = useState({});
+
+    useEffect(() => {
+        setStudent(selectedStudent);
+    }, [selectedStudent]);
 
     const handleChange = (event) => {
         const name = event.target.id;
         const value = event.target.value;
         setStudent((values) => ({ ...values, [name]: value }));
-        console.log(event.target.value)
         onStudentSelect(event.target.value);
     };
 
@@ -44,7 +47,7 @@ const StudentReportForm = ({students, onStudentSelect}) => {
                                     id="classroom"
                                     type="text"
                                     readOnly
-                                    value={student.classroom || ""}
+                                    value={student?.classroom || ""}
                                 />
                             </FormGroup>
                         </div>
@@ -56,7 +59,7 @@ const StudentReportForm = ({students, onStudentSelect}) => {
                                 <Input
                                     id="contactPerson"
                                     type="text"
-                                    value={student.contactPerson || ""}
+                                    value={student?.contactPerson || ""}
                                     readOnly
                                 />
                             </FormGroup>
@@ -67,7 +70,7 @@ const StudentReportForm = ({students, onStudentSelect}) => {
                                 <Input
                                     id="contactNo"
                                     type="text"
-                                    value={student.contactNo || ""}
+                                    value={student?.contactNo || ""}
                                     readOnly
                                 />
                             </FormGroup>
@@ -80,7 +83,7 @@ const StudentReportForm = ({students, onStudentSelect}) => {
                                 <Input
                                     id="email"
                                     type="email"
-                                    value={student.email || ""}
+                                    value={student?.email || ""}
                                     readOnly
                                 />
                             </FormGroup>
@@ -88,7 +91,7 @@ const StudentReportForm = ({students, onStudentSelect}) => {
                         <div class="col">
                             <FormGroup>
                                 <Label for="dob">Date of Birth</Label>
-                                <Input id="dob" type="date" value={student.dob || ""} readOnly />
+                                <Input id="dob" type="date" value={student?.dob || ""} readOnly />
                             </FormGroup>
                         </div>
                     </div>
