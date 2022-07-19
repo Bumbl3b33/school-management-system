@@ -1,6 +1,6 @@
-import CustomFormWrapper from "../../../components/customFormWrapper/CustomFormWrapper";
-import CustomTable from "../../../components/customTable/CustomTable";
-import NavigationBar from "../../../components/navbar/NavigationBar";
+import CustomFormWrapper from "../../../components/common/customFormWrapper/CustomFormWrapper";
+import CustomTable from "../../../components/common/customTable/CustomTable";
+import NavigationBar from "../../../components/common/navbar/NavigationBar";
 import { Form, FormGroup, Label, Input, Card, CardHeader, CardBody} from "reactstrap";
 import { useState, useEffect } from "react";
 

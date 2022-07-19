@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import CustomFormWrapper from "../../../components/customFormWrapper/CustomFormWrapper";
-import NavigationBar from "../../../components/navbar/NavigationBar";
-import CustomTable from "../../../components/customTable/CustomTable";
+import CustomFormWrapper from "../../../components/common/customFormWrapper/CustomFormWrapper";
+import NavigationBar from "../../../components/common/navbar/NavigationBar";
+import CustomTable from "../../../components/common/customTable/CustomTable";
 
 const AllocateStudentSubjects = () => {
   const [allocation, setAllocation] = useState({});
