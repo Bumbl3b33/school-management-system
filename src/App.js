@@ -13,6 +13,7 @@ import ManageSubjects from "./pages/manage/subjects/ManageSubjects";
 import ManageClassrooms from "./pages/manage/classrooms/ManageClassrooms";
 import ManageTeachers from "./pages/manage/teachers/ManageTeachers";
 import AllocateTeacherSubjects from "./pages/allocate/teacherSubjects/AllocateTeacherSubjects";
+import AllocateTeacherClassrooms from "./pages/allocate/teachersClassrooms/AllocateTeacherClassrooms";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/manage/teachers" element={<ManageTeachers/>}/>
         <Route path="/allocate/studentSubjects" element={<AllocateStudentSubjects/>}/>
         <Route path="/allocate/teacherSubjects" element={<AllocateTeacherSubjects/>}/>
+        <Route path="/allocate/teacherClassrooms" element={<AllocateTeacherClassrooms/>}/>
         <Route path="/reports/student" element={<StudentReport/>}/>
         <Route path="*" element={<Error404 />}/>  
       </Routes>
