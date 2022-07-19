@@ -2,7 +2,7 @@ import { Table, Button } from "reactstrap";
 import TableHeader from "../../../utils/tableHeader/TableHeader"
 const CustomTable = ({ table, buttonHandler, buttonText }) => {
   return (
-    <Table striped>
+    <Table striped responsive>
       <thead>
         <tr>
           
