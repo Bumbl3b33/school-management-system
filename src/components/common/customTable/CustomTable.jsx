@@ -5,16 +5,16 @@ const CustomTable = ({table, buttonHandler, buttonText }) => {
     <Table striped>
       <thead>
         <tr>
-          {table && Object.keys(table[0]).map((key) => <th> {key} </th>)}
+          {table && Object.keys(table[0]).map((key, index) => <th key={index}> {key} </th>)}
           {buttonHandler && <th>Action</th>}
         </tr>
       </thead>
       <tbody>
         {table &&
-          table.map((object) => (
-            <tr>
-              {Object.values(object).map((value) => (
-                <td>{value}</td>
+          table.map((object, index) => (
+            <tr key={index}>
+              {Object.values(object).map((value, index) => (
+                <td key={index}>{value}</td>
               ))}
               {buttonHandler && (
                 <td>

@@ -29,7 +29,7 @@ const NavigationBar = () => {
               <DropdownToggle nav caret>
                 Manage
               </DropdownToggle>
-              <DropdownMenu right>
+              <DropdownMenu end>
                 <DropdownItem>
                   <NavLink href="/manage/students">Students</NavLink>
                 </DropdownItem>
@@ -51,7 +51,7 @@ const NavigationBar = () => {
               <DropdownToggle nav caret>
                 Allocate
               </DropdownToggle>
-              <DropdownMenu right>
+              <DropdownMenu end>
                 <DropdownItem>
                   <NavLink href="/allocate/studentSubjects">Student's Subjects</NavLink>
                 </DropdownItem>
@@ -69,7 +69,7 @@ const NavigationBar = () => {
               <DropdownToggle nav caret>
                 Reports
               </DropdownToggle>
-              <DropdownMenu right>
+              <DropdownMenu end>
                 <DropdownItem>
                   <NavLink href="/reports/student">Student</NavLink>
                 </DropdownItem>               
