@@ -3,18 +3,16 @@ import {Card, CardHeader, CardBody } from "reactstrap";
 import { useEffect, useState } from "react";
 import StudentForm from "../../../components/studentForm/studentFom";
 import StudentTable from "../../../components/studentTable/studentTable";
-import { getStudents } from "../../../services/student/studentService";
-import { getClassrooms } from "../../../services/classroom/classroomService";
 
 const ManageStudents = () => {
   
   const [selectedStudentId, setSelectedStudentId] = useState(); 
   const [classrooms, setClassrooms] = useState();
   const [students, setStudents] = useState()
-  const [loading, setLoading] = useState(true); //use this to render loading icon when loading is true
+  //const [loading, setLoading] = useState(true); //use this to render loading component(S) when loading is true
 
   useEffect(() => {
-    //Call APIs to load data
+    /*  Call APIs to load data */
     //const students = await getStudents().then(response => setStudents(response.data)); 
     //const classrooms = await getClassrooms().then(response => setClassrooms(response.data)); 
     
@@ -26,7 +24,7 @@ const ManageStudents = () => {
       { id: 1, name: "Grade 8A" }, { id: 2, name: 'Grade 12A' }, {id:3, name:"Grade 12B"}
     ])
 
-    setLoading(false);
+    //setLoading(false);
   }, []);
 
   const onSubmit = () => {
@@ -40,7 +38,7 @@ const ManageStudents = () => {
       <div class="container p-3">
         <StudentForm 
           classrooms={classrooms}
-          selectedStudent={selectedStudentId && students.filter(student => student.id == selectedStudentId)[0]}
+          selectedStudent={selectedStudentId && students.filter(student => student.id === selectedStudentId)[0]}
           onSubmit={onSubmit}/>
       </div>
       <div class="container p-3">

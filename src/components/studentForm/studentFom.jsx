@@ -1,19 +1,18 @@
 import CustomFormWrapper from "../common/customFormWrapper/CustomFormWrapper"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input} from 'reactstrap';
-
 import { useEffect, useState } from "react";
 import { DateTime } from "luxon";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { deleteStudent, getStudents } from "../../services/student/studentService";
+
 const StudentForm = ({ classrooms, selectedStudent, onSubmit }) => {
     const [student, setStudent] = useState({});
+    const [modal, setModal] = useState(false);
 
     useEffect(() => {
         setStudent(selectedStudent);
     }, [selectedStudent]);
 
-    const [modal, setModal] = useState(false);
 
     const handleChange = (event) => {
         const name = event.target.id;

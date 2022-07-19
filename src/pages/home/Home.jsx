@@ -1,4 +1,3 @@
-import { Card, CardBody, CardHeader, Button } from "reactstrap";
 import NavigationBar from "../../components/common/navbar/NavigationBar";
 
 const Home = () => {

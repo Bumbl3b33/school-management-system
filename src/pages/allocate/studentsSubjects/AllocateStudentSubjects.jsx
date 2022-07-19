@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Toast } from "reactstrap";
 import NavigationBar from "../../../components/common/navbar/NavigationBar";
 import StudentSelectForm from "../../../components/studentSelectForm/StudentSelectForm";
 import StudentSubjectAllocation from "../../../components/StudentSubjectAllocation/StudentSubjectAllocation";
@@ -11,7 +10,7 @@ const AllocateStudentSubjects = () => {
   const [subjects, setSubjects] = useState();
   const [studentId, setStudentId] = useState();
   const [students, setStudents] = useState();
-  const [loading, setLoading] = useState(); //use this to render loading component(S) when loading is true
+  //const [loading, setLoading] = useState(); //use this to render loading component(S) when loading is true
 
   useEffect(() => {
     //Call APIs to load data
@@ -31,19 +30,19 @@ const AllocateStudentSubjects = () => {
         id: "1", firstName: "John", lastName: "Smith",
         subjects: [
           { id: 3, name: "english", teacher: "Fathima P." },
-          { id: 4, subject: "maths", teacher: "Suresh K." }]
+          { id: 4, name: "maths", teacher: "Suresh K." }]
       },
       {
         id: "2", firstName: "Anna", lastName: "Belle",
         subjects: [
           { id: 1, name: "sinhala", teacher: "Hirunika P." },
-          { id: 5, subject: "maths", teacher: "Mohotti L." },
+          { id: 5, name: "maths", teacher: "Mohotti L." },
           { id: 2, name: "tamil", teacher: "Jey P." },
         ]
       },
     ])
 
-    setLoading(false);
+    //setLoading(false);
   }, []);
 
   const onDeallocate = (subjectId) => {
@@ -74,7 +73,7 @@ const AllocateStudentSubjects = () => {
     //const studentsSubjects = await getStudentSubjects(studentId);
     //setStudentSubjects(studentsSubjects)
 
-    const { subjects } = students.filter(student => student.id == studentId)[0];
+    const { subjects } = students.filter(student => student.id === studentId)[0];
     setStudentSubjects(subjects);
     setStudentSubjects(subjects);
   }

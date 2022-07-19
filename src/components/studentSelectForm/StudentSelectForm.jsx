@@ -1,5 +1,5 @@
 import CustomFormWrapper from "../common/customFormWrapper/CustomFormWrapper";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Form, FormGroup, Label, Input } from "reactstrap";
 import { useState } from "react";
 
 const StudentSelectForm = ({ students, onStudentSelect, onSave }) => {
