@@ -1,121 +1,47 @@
 import CustomFormWrapper from "../../../components/common/customFormWrapper/CustomFormWrapper";
 import CustomTable from "../../../components/common/customTable/CustomTable";
 import NavigationBar from "../../../components/common/navbar/NavigationBar";
-import { Form, FormGroup, Label, Input, Card, CardHeader, CardBody} from "reactstrap";
+import { Card, CardHeader, CardBody } from "reactstrap";
 import { useState, useEffect } from "react";
+import StudentReportForm from "../../../components/studentReportForm/StudentReportForm";
 
 const StudentReport = () => {
-    const [student, setStudent] = useState({});
-    const [studentList, setStudentList] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [students, setStudents] = useState([
+        {
+            id: 1, firstName: "asela", lastName: "ratnayake",
+            report: [
+                { subject: "english", teacher: "james" },
+                { subject: "maths", teacher: "francis" }]
+        },
+        { id: 2, firstName: "sam", lastName: "basnaya",
+        report: [
+            { subject: "english", teacher: "akalanka" },
+            { subject: "french", teacher: "johnathan" }]
+        },
+        { id: 3, firstName: "huy", lastName: "koolo",
+        report: [
+            { subject: "maths", teacher: "plao" },
+            { subject: "science", teacher: "giyla" }]
+        },
+    ]);
 
-    const handleChange = (event) => {
-        const name = event.target.id;
-        const value = event.target.value;
-        setStudent((values) => ({ ...values, [name]: value }));
-    };
-
-    const sampleReport = [
+    const [report, setReport] = useState([
         { subject: "english", teacher: "james" },
         { subject: "maths", teacher: "francis" },
-    ];
+    ])
 
-    useEffect(() => {
-        const students = [
-            { id: 1, firstName: "asela", lastName: "ratnayake" },
-            { id: 2, firstName: "sam", lastName: "basnaya" },
-        ];
-        setStudentList(students);
-        setLoading(false);
-    }, []);
-
+    /**
+     * Updates the report based on the student selected
+     */
+    const onStudentSelect = (studentId) => {    
+        const {report} = students.filter(student => student.id == studentId)[0];
+        setReport(report);
+    }
     return (
         <>
             <NavigationBar />
             <div class="container p-3" >
-                <CustomFormWrapper title="Student Report">
-                <Form>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <FormGroup>
-                                    <Label for="studentId">Student</Label>
-                                    <Input
-                                        id="studentId"
-                                        type="select"
-                                        value={student.id || ""}
-                                        onChange={handleChange}
-                                    >
-                                        {studentList &&
-                                            studentList.map((student) => (
-                                                <option key={student.id}>
-                                                    {student.firstName + " " + student.lastName}
-                                                </option>
-                                            ))}
-                                    </Input>
-                                </FormGroup>
-                            </div>
-
-                            <div class="col">
-                                <FormGroup>
-                                    <Label for="classroom">Classroom</Label>
-                                    <Input
-                                        id="classroom"
-                                        type="text"
-                                        readOnly
-                                        value={student.classroom || ""}
-                                    />
-                                </FormGroup>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <FormGroup>
-                                    <Label for="contactPerson">Contact Person</Label>
-                                    <Input
-                                        id="contactPerson"
-                                        type="text"
-                                        value={student.contactPerson || ""}
-                                        readOnly
-                                    />
-                                </FormGroup>
-                            </div>
-
-                            <div class="col">
-                                <FormGroup>
-                                    <Label for="contactNo">Contact No.</Label>
-                                    <Input
-                                        id="contactNo"
-                                        type="text"
-                                        value={student.contactNo || ""}
-                                        readOnly
-                                    />
-                                </FormGroup>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <FormGroup>
-                                    <Label for="email">Email Address</Label>
-                                    <Input
-                                        id="email"
-                                        type="email"
-                                        value={student.email || ""}
-                                        readOnly
-                                    />
-                                </FormGroup>
-                            </div>
-                            <div class="col">
-                                <FormGroup>
-                                    <Label for="dob">Date of Birth</Label>
-                                    <Input id="dob" type="date" value={student.dob || ""} readOnly />
-                                </FormGroup>
-                            </div>
-                        </div>
-                    </div>
-                        
-                    </Form>
-                </CustomFormWrapper>
+                <StudentReportForm students={students} onStudentSelect={onStudentSelect} />
             </div>
             <div class="container p-3">
                 <Card>
@@ -123,7 +49,7 @@ const StudentReport = () => {
                         Teacher and Subject Details
                     </CardHeader>
                     <CardBody>
-                        <CustomTable table={sampleReport} />
+                        <CustomTable table={report} />
                     </CardBody>
                 </Card>
             </div>
