@@ -59,7 +59,7 @@ const AllocateTeacherSubjects = () => {
   }
 
   const onSave = () => {
-    if (!teacherId) toast.warn("Please select a teacher")
+    if (!teacherId) return toast.warn("Please select a teacher")
     toast.success("Saving (not really)...")
 
     /*  Call API Endpoint(s) */
