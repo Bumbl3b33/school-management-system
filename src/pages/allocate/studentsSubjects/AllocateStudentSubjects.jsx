@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import NavigationBar from "../../../components/common/navbar/NavigationBar";
-import StudentSelectForm from "../../../components/studentSelectForm/StudentSelectForm";
-import StudentSubjectAllocation from "../../../components/StudentSubjectAllocation/StudentSubjectAllocation";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SelectForm from "../../../components/common/selectForm/SelectForm";
+import AllocationForm from "../../../components/common/allocationForm/AllocationForm";
+import CustomTable from "../../../components/common/customTable/CustomTable";
 
 const AllocateStudentSubjects = () => {
   const [studentSubjects, setStudentSubjects] = useState();
@@ -82,10 +83,11 @@ const AllocateStudentSubjects = () => {
     <>
       <NavigationBar />
       <div class="container p-3">
-        <StudentSelectForm students={students} onStudentSelect={onStudentSelect} onSave={onSave} />
+        <SelectForm title="Select Student" label="Student" options={students} onSelect={onStudentSelect} onSave={onSave} />
       </div>
       <div class="container p-3">
-        <StudentSubjectAllocation subjects={subjects} studentSubjects={studentSubjects} onAllocate={onAllocate} onDeallocate={onDeallocate} />
+        <AllocationForm title="Allocated Subjects" label="Subject" options={subjects} onAllocate={onAllocate} />
+        <CustomTable title="Existing Subjects" table={studentSubjects} buttonHandler={onDeallocate} buttonText="Deallocate" />
       </div>
       <ToastContainer />
     </>
