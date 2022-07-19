@@ -1,8 +1,8 @@
 import NavigationBar from "../../../components/common/navbar/NavigationBar";
 import { Card, CardHeader, CardBody } from "reactstrap";
 import { useEffect, useState } from "react";
-import ClassroomTable from "../../../components/classroomTable/ClassroomTable";
 import ClassroomForm from "../../../components/classroomForm/ClassroomForm";
+import CustomTable from "../../../components/common/customTable/CustomTable";
 
 const ManageClassrooms = () => {
 
@@ -41,9 +41,7 @@ const ManageClassrooms = () => {
                         Existing classrooms
                     </CardHeader>
                     <CardBody>
-                        <ClassroomTable
-                            classrooms={classrooms}
-                            onSelectEdit={onSelectEdit} />
+                        <CustomTable table={classrooms} buttonHandler={onSelectEdit} buttonText="Edit" />
                     </CardBody>
                 </Card>
             </div>

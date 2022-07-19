@@ -1,8 +1,8 @@
 import NavigationBar from "../../../components/common/navbar/NavigationBar";
 import { Card, CardHeader, CardBody } from "reactstrap";
 import { useEffect, useState } from "react";
-import SubjectTable from "../../../components/subjectTable/SubjectTable";
 import SubjectForm from "../../../components/subjectForm/SubjectForm";
+import CustomTable from "../../../components/common/customTable/CustomTable";
 
 const ManageSubjects = () => {
 
@@ -41,9 +41,7 @@ const ManageSubjects = () => {
                         Existing subjects
                     </CardHeader>
                     <CardBody>
-                        <SubjectTable
-                            subjects={subjects}
-                            onSelectEdit={onSelectEdit} />
+                        <CustomTable table={subjects} buttonHandler={onSelectEdit} buttonText="Edit" />
                     </CardBody>
                 </Card>
             </div>
