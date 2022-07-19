@@ -1,7 +1,7 @@
 import NavigationBar from "../../../components/common/navbar/NavigationBar";
 import { Card, CardHeader, CardBody } from "reactstrap";
 import { useEffect, useState } from "react";
-import SubjectForm from "../../../components/subjectForm/SubjectForm";
+import SubjectForm from "../../../components/forms/subjectForm/SubjectForm";
 import CustomTable from "../../../components/common/customTable/CustomTable";
 
 const ManageSubjects = () => {

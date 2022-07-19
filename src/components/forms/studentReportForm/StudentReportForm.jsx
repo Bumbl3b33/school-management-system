@@ -1,4 +1,4 @@
-import CustomFormWrapper from "../common/customFormWrapper/CustomFormWrapper";
+import CustomFormWrapper from "../../common/customFormWrapper/CustomFormWrapper";
 import { Form, FormGroup, Label, Input } from "reactstrap";
 import { useEffect, useState } from "react";
 

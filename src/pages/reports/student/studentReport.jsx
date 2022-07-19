@@ -2,7 +2,7 @@ import CustomTable from "../../../components/common/customTable/CustomTable";
 import NavigationBar from "../../../components/common/navbar/NavigationBar";
 import { Card, CardHeader, CardBody } from "reactstrap";
 import { useState, useEffect } from "react";
-import StudentReportForm from "../../../components/studentReportForm/StudentReportForm";
+import StudentReportForm from "../../../components/forms/studentReportForm/StudentReportForm";
 
 const StudentReport = () => {
     const [selectedStudentId, setSelectedStudentId] = useState();

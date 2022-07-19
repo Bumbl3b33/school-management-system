@@ -1,7 +1,7 @@
 import NavigationBar from "../../../components/common/navbar/NavigationBar";
 import { Card, CardHeader, CardBody } from "reactstrap";
 import { useEffect, useState } from "react";
-import StudentForm from "../../../components/studentForm/studentFom";
+import StudentForm from "../../../components/forms/studentForm/studentForm";
 import CustomTable from "../../../components/common/customTable/CustomTable";
 
 const ManageStudents = () => {
