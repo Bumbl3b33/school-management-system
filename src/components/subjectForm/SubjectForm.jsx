@@ -19,7 +19,6 @@ const SubjectForm = ({ selectedSubject, onSubmit }) => {
         const value = event.target.value;
         setSubject((values) => ({ ...values, [name]: value }));
     };
-    console.log(subject)
 
     const onSave = () => {
         toast.success("Saving subject (not really)...");
