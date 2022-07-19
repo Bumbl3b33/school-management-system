@@ -6,17 +6,22 @@ import StudentTable from "../../../components/studentTable/studentTable";
 
 const ManageStudents = () => {
   
-  const [classrooms, setClassrooms] = useState([{ id: 1, name: 'class 1' }, { id: 2, name: 'class 2' }]);
+  const [selectedStudentId, setSelectedStudentId] = useState(); 
+  const [classrooms, setClassrooms] = useState([
+    { id: 1, name: "Grade 8A" }, { id: 2, name: 'Grade 12A' }, {id:3, name:"Grade 12B"}
+  ]);
   const [students, setStudents] = useState([
-    { id: "1", name: "john", age: 45, wives: 2 },
-    { id: "2", name: "sam", age: 35, wives: 12 },
+    { id: "1", firstName: "john", lastName: "smith", contactNo: "+94814545454", contactPerson: "alex rider", classroom: "Grade 8A" ,email:"johnsmith@myschool.com", dob:"2001-12-30" },
+    { id: "2", firstName: "anna", lastName: "belle", contactNo: "+94811313131", contactPerson: "valak johnson", classroom: "Grade 12A" ,email:"anabelle@myschool.com", dob:"2002-03-11" },
   ])
+
+  const onSelectEdit = (e) =>{ setSelectedStudentId(e.target.id)};
 
   return (
     <>
       <NavigationBar />
       <div class="container p-3">
-        <StudentForm classrooms={classrooms}  />
+        <StudentForm classrooms={classrooms} selectedStudent={selectedStudentId && students.filter(student => student.id == selectedStudentId)[0]} />
       </div>
       <div class="container p-3">
         <Card>
@@ -24,7 +29,7 @@ const ManageStudents = () => {
           Existing Students
           </CardHeader>
           <CardBody>
-            <StudentTable students={students} />
+            <StudentTable students={students} onSelectEdit={onSelectEdit} />
           </CardBody>
         </Card>
       </div>

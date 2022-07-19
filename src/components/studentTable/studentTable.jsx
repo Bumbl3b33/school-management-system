@@ -1,13 +1,9 @@
 import CustomTable from "../common/customTable/CustomTable";
 
-const StudentTable = ({ students }) => {
-
-    const onEdit = (e) => {
-        console.log("editing student", e.target.id);
-    };
+const StudentTable = ({ students, onSelectEdit }) => {
 
     return (
-        <CustomTable table={students} buttonHandler={onEdit} buttonText="Edit" />
+        <CustomTable table={students} buttonHandler={onSelectEdit} buttonText="Edit" />
     )
 
 }
