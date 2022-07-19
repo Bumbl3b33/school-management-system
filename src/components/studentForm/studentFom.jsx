@@ -13,8 +13,6 @@ const StudentForm = ({ classrooms, selectedStudent, onSubmit }) => {
         setStudent(selectedStudent);
     }, [selectedStudent]);
 
-    console.log("selectedStudent",selectedStudent);
-    console.log("student",student);
     const [modal, setModal] = useState(false);
 
     const handleChange = (event) => {
@@ -25,15 +23,21 @@ const StudentForm = ({ classrooms, selectedStudent, onSubmit }) => {
     
     const onSave = () => {
         toast.success("Saving student (not really)...");
+        
+        /* Call API endpoint(s) */
+        //createStudent(student.id,student);
+        //onSubmit();
+
         resetForm();
     };
 
     const onDeleteUserConfirmed = () => {       
         toast.success("Deleting student (not really)...");
         
-        //Call API endpoint
+        /* Call API endpoint(s)  */
         //deleteStudent(student.id);
-        
+        //onSubmit();
+
         resetForm();
         toggleDeleteModal();
     }
