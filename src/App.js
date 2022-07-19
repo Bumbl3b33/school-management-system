@@ -10,6 +10,7 @@ import AllocateStudentSubjects from "./pages/allocate/studentsSubjects/AllocateS
 import Error404 from "./components/common/error404/Error404"
 import StudentReport from "./pages/reports/student/studentReport";
 import ManageSubjects from "./pages/manage/subjects/ManageSubjects";
+import ManageClassrooms from "./pages/manage/classrooms/ManageClassrooms";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/manage/students" element={<ManageStudents/>}/>
         <Route path="/manage/subjects" element={<ManageSubjects/>}/>
+        <Route path="/manage/classrooms" element={<ManageClassrooms/>}/>
         <Route path="/allocate/studentSubjects" element={<AllocateStudentSubjects/>}/>
         <Route path="/reports/student" element={<StudentReport/>}/>
         <Route path="*" element={<Error404 />}/>  
