@@ -26,8 +26,8 @@ const StudentReportForm = ({students, onStudentSelect}) => {
                                     type="select"
                                     value={student?.id}
                                     onChange={handleChange}
-                                    defaultValue
-                                >
+                                >   
+                                    <option value="" disabled selected hidden>Please Choose...</option>
                                     {students &&
                                         students.map((student, index) => (
                                             <option key={index} value={student.id}>

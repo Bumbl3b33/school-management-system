@@ -25,10 +25,7 @@ const StudentReport = () => {
         },
     ]);
 
-    const [report, setReport] = useState([
-        { subject: "english", teacher: "james" },
-        { subject: "maths", teacher: "francis" },
-    ])
+    const [report, setReport] = useState()
 
     /**
      * Updates the report based on the student selected
