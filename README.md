@@ -2,14 +2,23 @@
 
 Manage Students, Teachers, Classrooms and Subjects with allocation and reporting capabilities.
 
+This project makes use of the key libraries:
+
+- Reactstrap for styling and UI
+- React-toastify for (beautiful) alerts
+- React-router for routing
+- Axios for flexible data fetching from APIs
+- Luxon for lightweight DateTime manipulation
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm install && npm start`
 
+Installs the necessary dependencies.
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
