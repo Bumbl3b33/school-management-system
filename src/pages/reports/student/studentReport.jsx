@@ -11,8 +11,12 @@ const StudentReport = () => {
     //const [loading, setLoading] = useState(true) //use this to render loading component(S) when loading is true
 
     useEffect(() => {
-        //Call APIs to load data
-        //const students = await getStudents().then(response => setStudents(response.data)); 
+        /*  Call API Endpoint(s) */
+        try {
+            //const students = await getStudents().then(response => setStudents(response.data)); 
+        } catch (error) {
+
+        }
 
         setStudents([
             {
@@ -41,8 +45,13 @@ const StudentReport = () => {
     const onStudentSelect = (studentId) => {
         setSelectedStudentId(studentId);
 
-        /*  Call API Endpoint(s) to load data */
-        // const report = await getStudentReport(studentId).then(response => setReport(response.data));
+        /*  Call API Endpoint(s) */
+        try {
+            // const report = await getStudentReport(studentId).then(response => setReport(response.data));
+        } catch (error) {
+
+        }
+
 
         const { report } = students.filter(student => student.id === studentId)[0];
         setReport(report);
@@ -54,8 +63,8 @@ const StudentReport = () => {
                 <StudentReportForm
                     students={students}
                     onStudentSelect={onStudentSelect}
-                    selectedStudent= {selectedStudentId && students.filter(student => student.id === selectedStudentId)[0]}
-                    />
+                    selectedStudent={selectedStudentId && students.filter(student => student.id === selectedStudentId)[0]}
+                />
             </div>
             <div class="container p-3">
                 <Card>

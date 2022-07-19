@@ -23,8 +23,13 @@ const SubjectForm = ({ selectedSubject, onSubmit }) => {
         toast.success("Saving subject (not really)...");
 
         /* Call API endpoint(s) */
-        //createSubject(subject.id,subject);
-        //onSubmit();
+        try {
+            //createSubject(subject.id,subject);
+            //onSubmit();
+        } catch (error) {
+
+        }
+
 
         resetForm();
     };
@@ -33,8 +38,13 @@ const SubjectForm = ({ selectedSubject, onSubmit }) => {
         toast.success("Deleting subject (not really)...");
 
         /* Call API endpoint(s)  */
-        //deleteSubject(subject.id);
-        //onSubmit();
+        try {
+            //deleteSubject(subject.id);
+            //onSubmit();
+        } catch (error) {
+
+        }
+
 
         resetForm();
         toggleDeleteModal();

@@ -14,16 +14,21 @@ const AllocateTeacherClassrooms = () => {
   //const [loading, setLoading] = useState(); //use this to render loading component(S) when loading is true
 
   useEffect(() => {
-    //Call APIs to load data
-    //const classrooms = await getclassrooms().then(response => setClassrooms(response.data)); 
-    //const teachers = await getTeachers().then(response => setTeachers(response.data)); 
+    /*  Call API Endpoint(s) */
+    try {
+      //const classrooms = await getclassrooms().then(response => setClassrooms(response.data)); 
+      //const teachers = await getTeachers().then(response => setTeachers(response.data)); 
+    } catch (error) {
+
+    }
+
 
     setClassrooms([
       { id: 1, name: "Grade 9A" },
       { id: 2, name: "Grade 10B" },
-      { id: 3, name: "Grade 12A"},
-      { id: 4, name: "Grade 12B"},
-      { id: 5, name: "Grade 13"}
+      { id: 3, name: "Grade 12A" },
+      { id: 4, name: "Grade 12B" },
+      { id: 5, name: "Grade 13" }
     ])
 
     setTeachers([
@@ -32,13 +37,14 @@ const AllocateTeacherClassrooms = () => {
         classrooms: [
           { id: 1, name: "Grade 9A" },
           { id: 2, name: "Grade 10B" },
-        ]},
+        ]
+      },
       {
         id: "2", firstName: "Suresh", lastName: "Kherma",
         classrooms: [
-          { id: 3, name: "Grade 12A"},
-          { id: 4, name: "Grade 12B"},
-          { id: 5, name: "Grade 13"}
+          { id: 3, name: "Grade 12A" },
+          { id: 4, name: "Grade 12B" },
+          { id: 5, name: "Grade 13" }
         ]
       },
     ])
@@ -63,16 +69,26 @@ const AllocateTeacherClassrooms = () => {
     toast.success("Saving (not really)...")
 
     /*  Call API Endpoint(s) */
-    // await updateteacherClassrooms(teacherId, teacherClassrooms);
+    try {
+      // await updateteacherClassrooms(teacherId, teacherClassrooms);
+    } catch (error) {
+
+    }
+
   }
 
   const onTeacherSelect = (teacherId) => {
     setTeacherId(teacherId);
 
     /*  Call API Endpoint(s) */
-    //setTeacherId(teacherId);
-    //const teachersclassrooms = await getteacherClassrooms(teacherId);
-    //setTeacherClassrooms(teachersclassrooms)
+    try {
+      //setTeacherId(teacherId);
+      //const teachersclassrooms = await getteacherClassrooms(teacherId);
+      //setTeacherClassrooms(teachersclassrooms)
+    } catch (error) {
+
+    }
+
 
     const { classrooms } = teachers.filter(teacher => teacher.id === teacherId)[0];
     setTeacherClassrooms(classrooms);
@@ -88,7 +104,7 @@ const AllocateTeacherClassrooms = () => {
       <div class="container p-3">
         <AllocationForm title="Allocated classrooms" label="Subject" options={classrooms} onAllocate={onAllocate} />
         <CustomTable title="Existing Teachers" table={teacherClassrooms} buttonHandler={onDeallocate} buttonText="Deallocate" />
-        </div>
+      </div>
       <ToastContainer />
     </>
   );

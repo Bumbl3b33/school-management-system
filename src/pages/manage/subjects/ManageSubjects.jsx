@@ -11,8 +11,12 @@ const ManageSubjects = () => {
     //const [loading, setLoading] = useState(true); //use this to render loading component(S) when loading is true
 
     useEffect(() => {
-        /*  Call APIs to load data */
-        //const subjects = await getsubjects().then(response => setSubjects(response.data)); 
+        /*  Call API Endpoint(s) */
+        try {
+            //const subjects = await getsubjects().then(response => setSubjects(response.data)); 
+        } catch (error) {
+
+        }
 
         setSubjects([
             { id: "1", name: "English", },

@@ -22,8 +22,13 @@ const TeacherForm = ({ selectedteacher, onSubmit }) => {
         toast.success("Saving teacher (not really)...");
 
         /* Call API endpoint(s) */
-        //createTeacher(teacher.id,teacher);
-        //onSubmit();
+        try {
+            //createTeacher(teacher.id,teacher);
+            //onSubmit();
+        } catch (error) {
+
+        }
+
 
         resetForm();
     };
@@ -32,8 +37,12 @@ const TeacherForm = ({ selectedteacher, onSubmit }) => {
         toast.success("Deleting teacher (not really)...");
 
         /* Call API endpoint(s)  */
-        //deleteTeacher(teacher.id);
-        //onSubmit();
+        try {
+            //deleteTeacher(teacher.id);
+            //onSubmit();
+        } catch (error) {
+
+        }
 
         resetForm();
         toggleDeleteModal();

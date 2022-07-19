@@ -11,8 +11,12 @@ const ManageClassrooms = () => {
     //const [loading, setLoading] = useState(true); //use this to render loading component(S) when loading is true
 
     useEffect(() => {
-        /*  Call APIs to load data */
-        //const classrooms = await getClassrooms().then(response => setClassrooms(response.data)); 
+        /*  Call API Endpoint(s) */
+        try {
+            //const classrooms = await getClassrooms().then(response => setClassrooms(response.data)); 
+        } catch (error) {
+
+        }
 
         setClassrooms([
             { id: "1", classroom: "Grade 11A", },

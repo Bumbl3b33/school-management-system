@@ -12,9 +12,14 @@ const ManageStudents = () => {
   //const [loading, setLoading] = useState(true); //use this to render loading component(S) when loading is true
 
   useEffect(() => {
-    /*  Call APIs to load data */
-    //const students = await getStudents().then(response => setStudents(response.data)); 
-    //const classrooms = await getClassrooms().then(response => setClassrooms(response.data)); 
+    /*  Call API Endpoint(s) */
+    try {
+      //const students = await getStudents().then(response => setStudents(response.data)); 
+      //const classrooms = await getClassrooms().then(response => setClassrooms(response.data)); 
+
+    } catch (error) {
+
+    }
 
     setStudents([
       { id: "1", firstName: "john", lastName: "smith", contactNo: "+94814545454", contactPerson: "alex rider", classroom: "Grade 8A", email: "johnsmith@myschool.com", dob: "2001-12-30" },

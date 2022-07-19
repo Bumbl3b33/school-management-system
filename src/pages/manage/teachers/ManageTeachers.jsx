@@ -11,8 +11,13 @@ const ManageTeachers = () => {
   //const [loading, setLoading] = useState(true); //use this to render loading component(S) when loading is true
 
   useEffect(() => {
-    /*  Call APIs to load data */
-    //const teachers = await getTeachers().then(response => setTeachers(response.data)); 
+    /*  Call API Endpoint(s) */
+    try {
+      //const teachers = await getTeachers().then(response => setTeachers(response.data)); 
+    } catch (error) {
+
+    }
+
 
     setTeachers([
       { id: "1", firstName: "john", lastName: "smith", contactPerson: "alex rider", email: "johnsmith@myschool.com" },

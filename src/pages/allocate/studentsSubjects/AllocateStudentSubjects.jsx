@@ -14,9 +14,14 @@ const AllocateStudentSubjects = () => {
   //const [loading, setLoading] = useState(); //use this to render loading component(S) when loading is true
 
   useEffect(() => {
-    //Call APIs to load data
-    //const students = await getSubjects().then(response => setSubjects(response.data)); 
-    //const classrooms = await getStudents().then(response => setStudents(response.data)); 
+    /* Call API endpoint(s)  */
+    try {
+      //const students = await getSubjects().then(response => setSubjects(response.data)); 
+      //const classrooms = await getStudents().then(response => setStudents(response.data)); 
+    } catch (error) {
+
+    }
+
 
     setSubjects([
       { id: 1, name: "sinhala", teacher: "Hirunika P." },
@@ -63,16 +68,26 @@ const AllocateStudentSubjects = () => {
     toast.success("Saving (not really)...")
 
     /*  Call API Endpoint(s) */
-    // await updateStudentSubjects(studentId, studentSubjects);
+    try {
+      // await updateStudentSubjects(studentId, studentSubjects);
+    } catch (error) {
+
+    }
+
   }
 
   const onStudentSelect = (studentId) => {
     setStudentId(studentId);
 
     /*  Call API Endpoint(s) */
-    //setStudentId(studentId);
-    //const studentsSubjects = await getStudentSubjects(studentId);
-    //setStudentSubjects(studentsSubjects)
+    try {
+      //setStudentId(studentId);
+      //const studentsSubjects = await getStudentSubjects(studentId);
+      //setStudentSubjects(studentsSubjects)
+    } catch (error) {
+
+    }
+
 
     const { subjects } = students.filter(student => student.id === studentId)[0];
     setStudentSubjects(subjects);

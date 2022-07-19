@@ -1,5 +1,5 @@
 import CustomFormWrapper from "../../common/customFormWrapper/CustomFormWrapper"
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input} from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useEffect, useState } from "react";
 import { DateTime } from "luxon";
 import { ToastContainer, toast } from 'react-toastify';
@@ -19,23 +19,33 @@ const StudentForm = ({ classrooms, selectedStudent, onSubmit }) => {
         const value = event.target.value;
         setStudent((values) => ({ ...values, [name]: value }));
     };
-    
+
     const onSave = () => {
         toast.success("Saving student (not really)...");
-        
+
         /* Call API endpoint(s) */
-        //createStudent(student.id,student);
-        //onSubmit();
+        try {
+            //createStudent(student.id,student);
+            //onSubmit();   
+        } catch (error) {
+
+        }
+
 
         resetForm();
     };
 
-    const onDeleteUserConfirmed = () => {       
+    const onDeleteUserConfirmed = () => {
         toast.success("Deleting student (not really)...");
-        
+
         /* Call API endpoint(s)  */
-        //deleteStudent(student.id);
-        //onSubmit();
+        try {
+            //deleteStudent(student.id);
+            //onSubmit();
+        } catch (error) {
+
+        }
+
 
         resetForm();
         toggleDeleteModal();
@@ -50,7 +60,7 @@ const StudentForm = ({ classrooms, selectedStudent, onSubmit }) => {
     }
 
     const toggleDeleteModal = () => setModal(!modal);
-    
+
     return (
         <>
             <CustomFormWrapper title="Manage Students" onDelete={onDeleteClick} onReset={resetForm} onSave={onSave}>

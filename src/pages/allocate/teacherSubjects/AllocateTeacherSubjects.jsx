@@ -14,23 +14,28 @@ const AllocateTeacherSubjects = () => {
   //const [loading, setLoading] = useState(); //use this to render loading component(S) when loading is true
 
   useEffect(() => {
-    //Call APIs to load data
-    //const subjects = await getSubjects().then(response => setSubjects(response.data)); 
-    //const teachers = await getTeachers().then(response => setTeachers(response.data)); 
+    /*  Call API Endpoint(s) */
+    try {
+      //const subjects = await getSubjects().then(response => setSubjects(response.data)); 
+      //const teachers = await getTeachers().then(response => setTeachers(response.data)); 
+    } catch (error) {
+
+    }
+
 
     setSubjects([
       { id: 1, name: "sinhala" },
       { id: 2, name: "tamil" },
-      { id: 3, name: "english"},
-      { id: 4, name: "maths"},
-      { id: 5, name: "physics"}
+      { id: 3, name: "english" },
+      { id: 4, name: "maths" },
+      { id: 5, name: "physics" }
     ])
 
     setTeachers([
       {
         id: "1", firstName: "Fathima", lastName: "Faizal",
         subjects: [
-          { id: 3, name: "english"},
+          { id: 3, name: "english" },
           { id: 4, name: "literature" }]
       },
       {
@@ -63,16 +68,25 @@ const AllocateTeacherSubjects = () => {
     toast.success("Saving (not really)...")
 
     /*  Call API Endpoint(s) */
-    // await updateteacherSubjects(teacherId, teacherSubjects);
+    try {
+      // await updateteacherSubjects(teacherId, teacherSubjects);
+    } catch (error) {
+
+    }
   }
 
   const onTeacherSelect = (teacherId) => {
     setTeacherId(teacherId);
 
     /*  Call API Endpoint(s) */
-    //setTeacherId(teacherId);
-    //const teachersSubjects = await getteacherSubjects(teacherId);
-    //setTeachersubjects(teachersSubjects)
+    try {
+      //setTeacherId(teacherId);
+      //const teachersSubjects = await getteacherSubjects(teacherId);
+      //setTeachersubjects(teachersSubjects)
+    } catch (error) {
+
+    }
+
 
     const { subjects } = teachers.filter(teacher => teacher.id === teacherId)[0];
     setTeachersubjects(subjects);
@@ -88,7 +102,7 @@ const AllocateTeacherSubjects = () => {
       <div class="container p-3">
         <AllocationForm title="Allocated Subjects" label="Subject" options={subjects} onAllocate={onAllocate} />
         <CustomTable title="Existing Teachers" table={teacherSubjects} buttonHandler={onDeallocate} buttonText="Deallocate" />
-        </div>
+      </div>
       <ToastContainer />
     </>
   );
