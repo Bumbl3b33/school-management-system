@@ -37,11 +37,11 @@ const NavigationBar = () => {
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
-                  <NavLink href="#">Subjects</NavLink>
+                  <NavLink href="/manage/subjects">Subjects</NavLink>
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
-                  <NavLink href="#">Classrooms</NavLink>
+                  <NavLink href="/manage/classrooms">Classrooms</NavLink>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
@@ -55,11 +55,11 @@ const NavigationBar = () => {
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
-                  <NavLink href="#">Teacher's Classrooms</NavLink>
+                  <NavLink href="/allocate/teacherClassrooms">Teacher's Classrooms</NavLink>
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
-                  <NavLink href="#">Teacher's Subjects</NavLink>
+                  <NavLink href="/allocate/teacherSubjects">Teacher's Subjects</NavLink>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
