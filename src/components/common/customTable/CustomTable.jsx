@@ -1,13 +1,14 @@
 import { Table, Button } from "reactstrap";
-
+import TableHeader from "../../../utils/tableHeader/TableHeader"
 const CustomTable = ({ table, buttonHandler, buttonText }) => {
   return (
     <Table striped>
       <thead>
         <tr>
+          
           {table &&
             <>
-              {Object.keys(table[0]).map((key, index) => <th key={index}> {key} </th>)}
+              {Object.keys(table[0]).map((key, index) => <th key={index}> {TableHeader(key)} </th>)}
               {buttonHandler && <th>Action</th>}
             </>}
         </tr>
