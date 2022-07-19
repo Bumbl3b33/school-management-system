@@ -18,7 +18,7 @@ const CustomTable = ({table, buttonHandler, buttonText }) => {
               ))}
               {buttonHandler && (
                 <td>
-                  {/* object.id is a unique identifier that is passed into the onclick event*/}
+                  {/* object.id is a unique identifier for the row that is passed into the onclick event*/}
                   <Button id={object.id} onClick={buttonHandler}>
                     {buttonText}
                   </Button>

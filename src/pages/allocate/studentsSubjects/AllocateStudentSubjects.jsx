@@ -1,93 +1,58 @@
 import { useState } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import CustomFormWrapper from "../../../components/common/customFormWrapper/CustomFormWrapper";
 import NavigationBar from "../../../components/common/navbar/NavigationBar";
-import CustomTable from "../../../components/common/customTable/CustomTable";
+import StudentSelectForm from "../../../components/studentSelectForm/StudentSelectForm";
+import StudentSubjectAllocation from "../../../components/StudentSubjectAllocation/StudentSubjectAllocation";
 
 const AllocateStudentSubjects = () => {
   const [allocation, setAllocation] = useState({});
+  const [studentSubjects, setStudentSubjects] = useState();
+  const [subjects, setSubjects] = useState([{ id: 1, name: "sinhala" }, { id: 2, name: "tamil" }, { id: 3, name: "english" }, { id: 4, name: "maths" }]);
 
-  const handleChange = (event) => {
-    const name = event.target.id;
-    const value = event.target.value;
-    setAllocation((values) => ({ ...values, [name]: value }));
-  };
+  const [students, setStudents] = useState([
+    {
+      id: 1, firstName: "asela", lastName: "ratnayake",
+      subjects: [
+        { id: 3, subject: "english", teacher: "james" },
+        { id: 4, subject: "maths", teacher: "francis" }]
+    },
+    {
+      id: 2, firstName: "sam", lastName: "basnaya",
+      subjects: [
+        { id: 4, subject: "english", teacher: "akalanka" },
+        { id: 2, subject: "tamil", teacher: "johnathan" }]
+    },
+    {
+      id: 3, firstName: "huy", lastName: "koolo",
+      subjects: [
+        { id: 1, subject: "sinhala", teacher: "plao" },
+        { id: 3, subject: "english", teacher: "giyla" }]
+    },
+  ]);
 
-  const sampleData = [
-    { id: 1, name: "john", age: 45, wives: 2 },
-    { id: 2, name: "sam", age: 35, wives: 12 },
-  ];
-
-  const students = ["student 1", "student 2"];
-  const subjects= ["subject 1", "subject 2"];
-
-  const onDeallocate = (e) => console.log("Deallocating...", e.target.id);
-  const onAllocate = () => console.log("Allocating...", allocation.subject);
+  const onDeallocate = (id) => console.log("Deallocating subject id...", id);
+  const onAllocate = (id) => console.log("Allocating subject id...", id);
   const onSave = () => console.log("Saving...", allocation.subject);
+
+  const onStudentSelect = (studentId) => {
+    console.log(studentId);
+
+    //update student's subjects
+    const { subjects } = students.filter(student => student.id == studentId)[0];
+    setStudentSubjects(subjects);
+  }
 
   return (
     <>
       <NavigationBar />
       <div class="container p-3">
-        <CustomFormWrapper
-          title="Select Student"
-          table={sampleData}
-          onSave={onSave}
-        >
-          <Form>
-          <div class="row">
-            <div class="col-3">
-              <FormGroup>
-                <Label for="student">Student</Label>
-                <Input
-                  id="student"
-                  type="select"
-                  value={allocation.student || ""}
-                  onChange={handleChange}
-                >
-                  {students &&
-                    students.map((student, index) => (
-                      <option key={index}>{student}</option>
-                    ))}
-                </Input>
-              </FormGroup>
-            </div>
-          </div>
-          </Form>
-        </CustomFormWrapper>
+        <StudentSelectForm students={students} onStudentSelect={onStudentSelect} onSave={onSave} />
       </div>
       <div class="container p-3">
-      <CustomFormWrapper
-          title="Allocated Subjects"
-          table={sampleData}
-          >
-          <Form>
-          <div class="row">
-            <div class="col-3">
-              <FormGroup>
-                <Label for="subject">Subject</Label>
-                <Input
-                  id="subject"
-                  type="select"
-                  value={allocation.subject || ""}
-                  onChange={handleChange}
-                >
-                  {subjects &&
-                    subjects.map((subject, index) => (
-                      <option key={index}>{subject}</option>
-                    ))}
-                </Input>
-              </FormGroup>
-              <Button color="success" onClick={onAllocate}>Allocate</Button>
-            </div>
-          </div>
-          <CustomTable title="Existing Students" table={sampleData} buttonHandler={onDeallocate} buttonText="Deallocate" />
-            
-          </Form>
-        </CustomFormWrapper>
+        <StudentSubjectAllocation subjects={subjects} studentSubjects={studentSubjects} onAllocate={onAllocate} onDeallocate={onDeallocate} />
+
       </div>
       <div class="container p-3">
-        
+
       </div>
     </>
   );
