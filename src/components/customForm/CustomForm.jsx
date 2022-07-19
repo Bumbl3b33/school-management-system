@@ -1,5 +1,5 @@
-import ButtonSet from "../buttonSet/ButtonSet";
-import { Card, CardFooter, CardHeader, CardBody, Form } from "reactstrap";
+import { Card, CardHeader, CardBody, Form } from "reactstrap";
+import CustomButtonGroup from "../customButtonGroup/CustomButtonGroup";
 
 const CustomForm = ({ children, title, onSave, onReset, onDelete }) => {
   return (
@@ -9,7 +9,7 @@ const CustomForm = ({ children, title, onSave, onReset, onDelete }) => {
         <Form>
           {children}
         </Form>
-        <ButtonSet onSave={onSave} onDelete={onDelete} onReset={onReset} />
+        <CustomButtonGroup onSave={onSave} onDelete={onDelete} onReset={onReset} />
       </CardBody>
     </Card>
   );

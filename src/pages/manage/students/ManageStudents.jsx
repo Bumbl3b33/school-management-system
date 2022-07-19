@@ -118,7 +118,7 @@ const ManageStudents = () => {
                 <Input
                   id="age"
                   readOnly
-                  value={student.dob && DateTime.now().diff(DateTime.fromFormat(student.dob, 'yyyy-MM-dd')).toFormat("yy") || "-"}
+                  value={(student.dob && DateTime.now().diff(DateTime.fromFormat(student.dob, 'yyyy-MM-dd')).toFormat("yy"))|| "-"}
                 />
               </FormGroup>
             </div>
