@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { FormGroup, Label, Input, Button } from "reactstrap";
-import CustomForm from "../../../components/customForm/CustomForm";
+import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import CustomFormWrapper from "../../../components/customFormWrapper/CustomFormWrapper";
 import NavigationBar from "../../../components/navbar/NavigationBar";
 import CustomTable from "../../../components/customTable/CustomTable";
 
@@ -29,11 +29,12 @@ const AllocateStudentSubjects = () => {
     <>
       <NavigationBar />
       <div class="container p-3">
-        <CustomForm
+        <CustomFormWrapper
           title="Select Student"
           table={sampleData}
           onSave={onSave}
         >
+          <Form>
           <div class="row">
             <div class="col-3">
               <FormGroup>
@@ -52,14 +53,15 @@ const AllocateStudentSubjects = () => {
               </FormGroup>
             </div>
           </div>
-        </CustomForm>
+          </Form>
+        </CustomFormWrapper>
       </div>
-
       <div class="container p-3">
-      <CustomForm
+      <CustomFormWrapper
           title="Allocated Subjects"
           table={sampleData}
           >
+          <Form>
           <div class="row">
             <div class="col-3">
               <FormGroup>
@@ -80,11 +82,10 @@ const AllocateStudentSubjects = () => {
             </div>
           </div>
           <CustomTable title="Existing Students" table={sampleData} buttonHandler={onDeallocate} buttonText="Deallocate" />
-        </CustomForm>
+            
+          </Form>
+        </CustomFormWrapper>
       </div>
-
-
-
       <div class="container p-3">
         
       </div>

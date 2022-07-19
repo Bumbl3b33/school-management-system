@@ -1,7 +1,7 @@
 import CustomTable from "../../../components/customTable/CustomTable";
-import CustomForm from "../../../components/customForm/CustomForm";
+import CustomFormWrapper from "../../../components/customFormWrapper/CustomFormWrapper";
 import NavigationBar from "../../../components/navbar/NavigationBar";
-import { FormGroup, Label, Input, Card, CardHeader, CardBody } from "reactstrap";
+import { Form, FormGroup, Label, Input, Card, CardHeader, CardBody } from "reactstrap";
 import { useState } from "react";
 import { DateTime } from "luxon";
 
@@ -38,7 +38,8 @@ const ManageStudents = () => {
     <>
       <NavigationBar />
       <div class="container p-3">
-        <CustomForm title="Manage Students" onDelete={onDelete} onReset={onReset} onSave={onSave}>
+        <CustomFormWrapper title="Manage Students" onDelete={onDelete} onReset={onReset} onSave={onSave}>
+        <Form>
           <div class="row">
             <div class="col">
               <FormGroup>
@@ -136,7 +137,9 @@ const ManageStudents = () => {
               </FormGroup>
             </div>
           </div>
-        </CustomForm>
+            
+          </Form>
+        </CustomFormWrapper>
       </div>
       <div class="container p-3">
         <Card>
