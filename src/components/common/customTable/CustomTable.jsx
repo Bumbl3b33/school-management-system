@@ -1,12 +1,15 @@
 import { Table, Button } from "reactstrap";
 
-const CustomTable = ({table, buttonHandler, buttonText }) => {
+const CustomTable = ({ table, buttonHandler, buttonText }) => {
   return (
     <Table striped>
       <thead>
         <tr>
-          {table && Object.keys(table[0]).map((key, index) => <th key={index}> {key} </th>)}
-          {buttonHandler && <th>Action</th>}
+          {table &&
+            <>
+              {Object.keys(table[0]).map((key, index) => <th key={index}> {key} </th>)}
+              {buttonHandler && <th>Action</th>}
+            </>}
         </tr>
       </thead>
       <tbody>
