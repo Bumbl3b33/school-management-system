@@ -29,7 +29,7 @@ const StudentSubjectAllocation = ({ subjects, studentSubjects, onAllocate, onDea
                                 <option value="" disabled selected hidden>Please Choose...</option> 
                                 {subjects &&
                                     subjects.map((subject, index) => (
-                                        <option key={index} value={subject.id}>{subject.name}</option>
+                                        <option key={index} value={subject.id}>{subject.name} {"|"} {subject.teacher}</option>
                                     ))}
                             </Input>
                         </FormGroup>
